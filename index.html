@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">تحميل التطبيق والاختبار المغلق</title>
+  <!-- Google Fonts: Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Background decorative glows -->
+  <div class="glow-bg">
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <img id="app-logo" src="https://cdn-icons-png.flaticon.com/512/859/859270.png" alt="App Logo" class="app-logo">
+      </div>
+      <h1 id="app-name">اسم التطبيق</h1>
+      <p id="app-subtitle" class="subtitle">تطبيق متجرنا الإلكتروني للهواتف الذكية</p>
+      <span class="badge"><i class="fa-solid fa-flask"></i> مرحلة الاختبار المغلق</span>
+    </header>
+
+    <!-- Main Card -->
+    <main class="main-card">
+      <p class="guide-intro">لتتمكن من تنزيل التطبيق وتجربته، يرجى اتباع الخطوتين التاليتين بالترتيب كما تفرضه سياسات
+        متجر Google Play:</p>
+
+      <!-- Steps Progress -->
+      <div class="steps-progress">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="step-indicator active" id="step-ind-1">1</div>
+        <div class="step-indicator" id="step-ind-2">2</div>
+      </div>
+
+      <!-- Step 1 Section -->
+      <section class="step-box active" id="section-step-1">
+        <div class="step-header">
+          <span class="step-number">الخطوة 1</span>
+          <h2>الانضمام لمجموعة المختبرين</h2>
+        </div>
+        <p class="step-desc">يتطلب جوجل بلاي انضمامك لمجموعة Google Group الخاصة بالتطبيق لتتمكن من تحميل النسخة
+          التجريبية.</p>
+
+        <div class="step-actions">
+          <a href="#" id="btn-join-group" target="_blank" class="btn btn-primary animate-pulse">
+            <i class="fa-solid fa-users-viewfinder"></i> الانضمام للمجموعة البريدية
+          </a>
+          <button id="btn-confirm-join" class="btn btn-secondary mt-3">
+            <i class="fa-solid fa-check-double"></i> لقد قمت بالانضمام، انتقل للخطوة التالية
+          </button>
+        </div>
+      </section>
+
+      <!-- Step 2 Section -->
+      <section class="step-box disabled" id="section-step-2">
+        <div class="step-header">
+          <span class="step-number">الخطوة 2</span>
+          <h2>تحميل وتثبيت التطبيق</h2>
+        </div>
+        <p class="step-desc">بعد انضمامك للمجموعة، يمكنك الآن الانتقال لمتجر Google Play لتحميل التطبيق وتفعيله كـ Beta
+          Tester.</p>
+
+        <div class="step-actions">
+          <button id="btn-download-app" class="btn btn-accent disabled-btn" disabled>
+            <i class="fa-brands fa-google-play"></i> تحميل التطبيق من Google Play
+          </button>
+        </div>
+
+        <div class="back-link-wrapper">
+          <button id="btn-back-to-1" class="btn-back">
+            <i class="fa-solid fa-arrow-right"></i> العودة للخطوة السابقة
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h3><i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة</h3>
+      <div class="faq-item">
+        <h4>لماذا يظهر لي أن التطبيق غير متوفر؟</h4>
+        <p>يجب التأكد من أنك قمت بالانضمام للمجموعة في الخطوة الأولى باستخدام نفس حساب Gmail المسجل به في متجر Google
+          Play على هاتفك.</p>
+      </div>
+      <div class="faq-item">
+        <h4>ما هي فترة الاختبار المغلق؟</h4>
+        <p>هي مرحلة تجريبية مطلوبة من متجر Google Play للتأكد من خلو التطبيق من المشاكل قبل إطلاقه للعامة.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>إذا واجهتك أي مشكلة، يرجى التواصل معنا عبر الواتساب: <a href="#" id="support-link">رقم الدعم</a></p>
+      <p class="copyright">&copy; <span id="year"></span> <span id="app-footer-name"></span>. جميع الحقوق محفوظة.</p>
+    </footer>
+  </div>
+
+  <!-- CONFIGURATION & LOGIC -->
+  <script>
+    // ==========================================
+    // كائن الإعدادات - يمكنك تعديل أي قيمة هنا بسهولة
+    // ==========================================
+    const APP_CONFIG = {
+      appName: "دكان مروة الطحان",
+      appSubtitle: "تطبيق تسوق متكامل وسريع ومصمم خصيصاً لتلبية احتياجاتك",
+      logoUrl: "./app_icon.png", // يمكنك وضع رابط صورتك أو مسار محلي مثل assets/icon/app_icon.png
+      googleGroupUrl: "https://groups.google.com/g/genuistech18",
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.genuiswebstoremeltahan",
+      supportPhone: "+201012345678", // رقم الهاتف أو الواتساب للدعم (مثال: +201012345678)
+
+      // ألوان الثيم (تم اختيار ألوان أنيقة وعصرية تناسب الهويات الاحترافية)
+      theme: {
+        primaryColor: "#6366f1",      // البنفسجي الجذاب (Indigo)
+        secondaryColor: "#10b981",    // الأخضر الزمردي للنجاح (Emerald)
+        accentColor: "#f43f5e",       // اللون الوردي الحيوي (Rose)
+        bgGradientStart: "#0a0f1d",   // أزرق داكن غامق جداً
+        bgGradientEnd: "#1e1b4b"      // بنفسجي داكن غامق
+      }
+    };
+
+    // ==========================================
+    // تطبيق الإعدادات وتأثيرات الصفحة التفاعلية
+    // ==========================================
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. تطبيق المتغيرات على النصوص والروابط
+      document.title = `برنامج اختبار | ${APP_CONFIG.appName}`;
+      document.getElementById("app-name").innerText = APP_CONFIG.appName;
+      document.getElementById("app-footer-name").innerText = APP_CONFIG.appName;
+      document.getElementById("app-subtitle").innerText = APP_CONFIG.appSubtitle;
+      document.getElementById("app-logo").src = APP_CONFIG.logoUrl;
+      document.getElementById("btn-join-group").href = APP_CONFIG.googleGroupUrl;
+      // تهيئة رابط الدعم الفني عبر الواتساب
+      const cleanPhone = APP_CONFIG.supportPhone.replace(/\+/g, '').replace(/\s/g, '');
+      document.getElementById("support-link").href = `https://wa.me/${cleanPhone}`;
+      document.getElementById("support-link").innerText = APP_CONFIG.supportPhone;
+      document.getElementById("year").innerText = new Date().getFullYear();
+
+      // 2. تطبيق ألوان الثيم ديناميكياً
+      const r = document.documentElement;
+      r.style.setProperty('--primary-color', APP_CONFIG.theme.primaryColor);
+      r.style.setProperty('--secondary-color', APP_CONFIG.theme.secondaryColor);
+      r.style.setProperty('--accent-color', APP_CONFIG.theme.accentColor);
+      r.style.setProperty('--bg-start', APP_CONFIG.theme.bgGradientStart);
+      r.style.setProperty('--bg-end', APP_CONFIG.theme.bgGradientEnd);
+
+      // 3. منطق التفاعل بين الخطوات
+      const btnConfirmJoin = document.getElementById("btn-confirm-join");
+      const btnDownloadApp = document.getElementById("btn-download-app");
+      const btnBackTo1 = document.getElementById("btn-back-to-1");
+      const secStep1 = document.getElementById("section-step-1");
+      const secStep2 = document.getElementById("section-step-2");
+      const stepInd1 = document.getElementById("step-ind-1");
+      const stepInd2 = document.getElementById("step-ind-2");
+      const progressBar = document.getElementById("progress-bar");
+
+      // الانتقال للخطوة 2
+      btnConfirmJoin.addEventListener("click", () => {
+        // تحديث حالة المؤشرات والتقدم
+        stepInd1.classList.remove("active");
+        stepInd1.classList.add("completed");
+        stepInd1.innerHTML = '<i class="fa-solid fa-check"></i>';
+        stepInd2.classList.add("active");
+        progressBar.style.width = "100%";
+
+        // إخفاء الخطوة الأولى وإظهار الثانية بسلاسة
+        secStep1.classList.remove("active");
+        secStep1.classList.add("completed-exit");
+
+        setTimeout(() => {
+          secStep1.style.display = "none";
+          secStep2.style.display = "block";
+          setTimeout(() => {
+            secStep2.classList.remove("disabled");
+            secStep2.classList.add("active");
+
+            // تفعيل زر التحميل
+            btnDownloadApp.classList.remove("disabled-btn");
+            btnDownloadApp.removeAttribute("disabled");
+          }, 50);
+        }, 300);
+      });
+
+      // العودة للخطوة 1
+      btnBackTo1.addEventListener("click", () => {
+        // تحديث حالة المؤشرات والتقدم
+        stepInd1.classList.add("active");
+        stepInd1.classList.remove("completed");
+        stepInd1.innerText = "1";
+        stepInd2.classList.remove("active");
+        progressBar.style.width = "0%";
+
+        // إخفاء الخطوة الثانية وإظهار الأولى بسلاسة
+        secStep2.classList.remove("active");
+
+        setTimeout(() => {
+          secStep2.style.display = "none";
+          secStep1.style.display = "block";
+          setTimeout(() => {
+            secStep1.classList.remove("completed-exit");
+            secStep1.classList.add("active");
+
+            // تعطيل زر التحميل مجدداً
+            btnDownloadApp.classList.add("disabled-btn");
+            btnDownloadApp.setAttribute("disabled", "true");
+          }, 50);
+        }, 300);
+      });
+
+      // حدث تحميل التطبيق
+      btnDownloadApp.addEventListener("click", () => {
+        if (!btnDownloadApp.hasAttribute("disabled")) {
+          // إضافة وميض خفيف قبل التحويل
+          btnDownloadApp.style.transform = "scale(0.95)";
+          setTimeout(() => {
+            window.open(APP_CONFIG.playStoreUrl, "_blank");
+            btnDownloadApp.style.transform = "";
+          }, 150);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
